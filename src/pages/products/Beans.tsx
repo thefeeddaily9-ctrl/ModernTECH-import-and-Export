@@ -16,17 +16,17 @@ export default function Beans() {
     {
       name: t('beans.pea.title'),
       description: t('beans.pea.desc'),
-      image: "/src/assets/images/regenerated_image_1778502399482.png"
+      image: "/assets/images/regenerated_image_1778502399482.png"
     },
     {
       name: t('beans.soy.premium.title'),
       description: t('beans.soy.premium.desc'),
-      image: "/src/assets/images/regenerated_image_1778504163293.png"
+      image: "/assets/images/regenerated_image_1778504163293.png"
     },
     {
       name: t('beans.vetch.title'),
       description: t('beans.vetch.desc'),
-      image: "/src/assets/images/regenerated_image_1778504171098.png"
+      image: "/assets/images/regenerated_image_1778504171098.png"
     }
   ];
 

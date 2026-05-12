@@ -41,8 +41,8 @@ export default function App() {
         <div className="flex flex-col min-h-screen bg-white selection:bg-orange-100 selection:text-orange-900 relative ltr:text-left rtl:text-right">
           {/* Thematic Background Elements */}
           <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-[0.03]">
-            <div className="absolute top-0 left-0 w-1/2 h-full bg-[url('/src/assets/images/regenerated_image_1778502393186.png')] bg-cover bg-no-repeat grayscale"></div>
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('/src/assets/images/regenerated_image_1778505448378.png')] bg-cover bg-no-repeat grayscale"></div>
+            <div className="absolute top-0 left-0 w-1/2 h-full bg-[url('/assets/images/regenerated_image_1778502393186.png')] bg-cover bg-no-repeat grayscale"></div>
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('/assets/images/regenerated_image_1778505448378.png')] bg-cover bg-no-repeat grayscale"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white"></div>
           </div>
           

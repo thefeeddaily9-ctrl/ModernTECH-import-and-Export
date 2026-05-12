@@ -16,19 +16,19 @@ export default function Minerals() {
     {
       name: t('minerals.gold.title'),
       description: t('minerals.gold.desc'),
-      image: "/src/assets/images/regenerated_image_1778505448378.png",
+      image: "/assets/images/regenerated_image_1778505448378.png",
       standards: t('minerals.standards.gold')
     },
     {
       name: t('minerals.tech.title'),
       description: t('minerals.tech.desc'),
-      image: "/src/assets/images/regenerated_image_1778504652929.png",
+      image: "/assets/images/regenerated_image_1778504652929.png",
       standards: t('minerals.standards.grade')
     },
     {
       name: t('minerals.gems.title'),
       description: t('minerals.gems.desc'),
-      image: "/src/assets/images/regenerated_image_1778504655777.png",
+      image: "/assets/images/regenerated_image_1778504655777.png",
       standards: t('minerals.standards.ethical')
     }
   ];
@@ -106,18 +106,18 @@ export default function Minerals() {
             <div className="relative grid grid-cols-2 gap-4 group/grid">
               <div className="space-y-4">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                  <img src="/src/assets/images/regenerated_image_1778505215239.png" alt="Mining Extraction" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src="/assets/images/regenerated_image_1778505215239.png" alt="Mining Extraction" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 </div>
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                  <img src="/src/assets/images/regenerated_image_1778505226563.png" alt="Resource Aggregation" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src="/assets/images/regenerated_image_1778505226563.png" alt="Resource Aggregation" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 </div>
               </div>
               <div className="space-y-4 mt-8">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:translate-y-1">
-                  <img src="/src/assets/images/regenerated_image_1778505220555.png" alt="Industrial Facility" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src="/assets/images/regenerated_image_1778505220555.png" alt="Industrial Facility" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 </div>
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:translate-y-1">
-                  <img src="/src/assets/images/regenerated_image_1778505230834.png" alt="Quality Control" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src="/assets/images/regenerated_image_1778505230834.png" alt="Quality Control" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 </div>
               </div>
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange-500/10 rounded-full blur-[80px] -z-10 group-hover/grid:bg-orange-500/20 transition-colors duration-700"></div>
@@ -178,10 +178,10 @@ export default function Minerals() {
             <div className="order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-4">
                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/src/assets/images/regenerated_image_1778503049133.png" alt="Mining Equipment" className="w-full h-full object-cover" />
+                    <img src="/assets/images/regenerated_image_1778503049133.png" alt="Mining Equipment" className="w-full h-full object-cover" />
                  </div>
                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg translate-y-8">
-                    <img src="/src/assets/images/regenerated_image_1778503054691.png" alt="Processing Facility" className="w-full h-full object-cover" />
+                    <img src="/assets/images/regenerated_image_1778503054691.png" alt="Processing Facility" className="w-full h-full object-cover" />
                  </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ export default function Imports() {
       <section className="relative py-32 bg-blue-950 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/src/assets/images/regenerated_image_1778502385742.png" 
+            src="/assets/images/regenerated_image_1778502385742.png" 
             alt="International Logistics"
             className="w-full h-full object-cover opacity-20 pointer-events-none"
             referrerPolicy="no-referrer"

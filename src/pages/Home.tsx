@@ -17,19 +17,19 @@ export default function Home() {
     {
       title: "Specialty Coffee",
       description: "Direct-from-farm Arabica beans. We own 10+ industrial farms in Oromia while managing Ethiopia's most robust sourcing network to deliver premium Specialty and Commercial grades.",
-      image: "/src/assets/images/regenerated_image_1778502393186.png",
+      image: "/assets/images/regenerated_image_1778502393186.png",
       link: "/exports/coffee"
     },
     {
       title: "Premium Minerals",
       description: "Ethiopia's #1 Mineral powerhouse. We command a dominant supply of high-purity gold, tantalum, and precious gemstones for critical global industries.",
-      image: "/src/assets/images/regenerated_image_1778505448378.png",
+      image: "/assets/images/regenerated_image_1778505448378.png",
       link: "/exports/minerals"
     },
     {
       title: "Pulses & Oilseeds",
       description: "High-protein Haricot beans, Soybeans, and uniform Sesame seeds processed in modern facilities to ensure 99.5% purity and international certification.",
-      image: "/src/assets/images/regenerated_image_1778502399482.png",
+      image: "/assets/images/regenerated_image_1778502399482.png",
       link: "/exports/seeds"
     }
   ];
@@ -68,7 +68,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0 flex">
           <div className="w-1/2 h-full relative overflow-hidden">
             <img 
-              src="/src/assets/images/regenerated_image_1778502393186.png" 
+              src="/assets/images/regenerated_image_1778502393186.png" 
               alt="Premium Ethiopian Specialty Coffee Beans from Oromia Region" 
               className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-60"
               referrerPolicy="no-referrer"
@@ -76,7 +76,7 @@ export default function Home() {
           </div>
           <div className="w-1/2 h-full relative overflow-hidden">
             <img 
-              src="/src/assets/images/regenerated_image_1778505448378.png" 
+              src="/assets/images/regenerated_image_1778505448378.png" 
               alt="Ethiopian Mineral Resources and Gold Extraction Industry" 
               className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-60"
               referrerPolicy="no-referrer"
@@ -157,7 +157,7 @@ export default function Home() {
 
       {/* Key Statistics */}
       <section className="py-20 bg-blue-950 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('/src/assets/images/regenerated_image_1778505448378.png')] bg-cover bg-center bg-fixed grayscale"></div>
+        <div className="absolute inset-0 opacity-10 bg-[url('/assets/images/regenerated_image_1778505448378.png')] bg-cover bg-center bg-fixed grayscale"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
             <motion.div {...fadeIn}>
@@ -211,7 +211,7 @@ export default function Home() {
             >
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl relative z-10">
                 <img 
-                  src="/src/assets/images/regenerated_image_1778502385742.png" 
+                  src="/assets/images/regenerated_image_1778502385742.png" 
                   alt="Moderntech Industrial Sourcing and Export Logistics Infrastructure" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

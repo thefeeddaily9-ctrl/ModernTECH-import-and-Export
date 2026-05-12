@@ -62,18 +62,18 @@ export default function About() {
             >
               <div className="space-y-4">
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img src="/src/assets/images/regenerated_image_1778504163293.png" alt="Coffee farming" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src="/assets/images/regenerated_image_1778504163293.png" alt="Coffee farming" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 </div>
                 <div className="aspect-square rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img src="/src/assets/images/regenerated_image_1778502385742.png" alt="Logistics" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src="/assets/images/regenerated_image_1778502385742.png" alt="Logistics" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 </div>
               </div>
               <div className="space-y-4 pt-12">
                 <div className="aspect-square rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img src="/src/assets/images/regenerated_image_1778502399482.png" alt="Seeds" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src="/assets/images/regenerated_image_1778502399482.png" alt="Seeds" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 </div>
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img src="/src/assets/images/regenerated_image_1778504171098.png" alt="Coffee beans" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <img src="/assets/images/regenerated_image_1778504171098.png" alt="Coffee beans" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 </div>
               </div>
             </motion.div>

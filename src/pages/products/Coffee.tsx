@@ -122,7 +122,7 @@ export default function Coffee() {
             <div className="relative group">
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
                 <img 
-                  src="/src/assets/images/regenerated_image_1778504163293.png" 
+                  src="/assets/images/regenerated_image_1778504163293.png" 
                   alt="Aerial View of Moderntech Coffee Farms" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
@@ -202,10 +202,10 @@ export default function Coffee() {
              
              <div className="lg:w-1/2 grid grid-cols-2 gap-4">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl translate-y-8">
-                   <img src="/src/assets/images/regenerated_image_1778504167950.png" alt="Processing" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                   <img src="/assets/images/regenerated_image_1778504167950.png" alt="Processing" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
-                   <img src="/src/assets/images/regenerated_image_1778504171098.png" alt="Hulling" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                   <img src="/assets/images/regenerated_image_1778504171098.png" alt="Hulling" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
              </div>
            </div>

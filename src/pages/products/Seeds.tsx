@@ -84,7 +84,7 @@ export default function Seeds() {
               viewport={{ once: true }}
               className="rounded-3xl overflow-hidden shadow-2xl h-[500px]"
             >
-              <img src="/src/assets/images/regenerated_image_1778502399482.png" alt="Sesame Seeds" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <img src="/assets/images/regenerated_image_1778502399482.png" alt="Sesame Seeds" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
             </motion.div>
           </div>
 

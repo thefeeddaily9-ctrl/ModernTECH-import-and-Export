@@ -11,7 +11,7 @@ export default function Exports() {
       title: t('hero.cta.coffee'),
       tagline: t('hero.tagline'),
       description: t('home.capacity.p1'),
-      image: "/src/assets/images/regenerated_image_1778502393186.png",
+      image: "/assets/images/regenerated_image_1778502393186.png",
       link: "/exports/coffee",
       features: [t('export.f.coffee.1'), t('export.f.coffee.2'), t('export.f.coffee.3'), t('export.f.coffee.4')]
     },
@@ -20,7 +20,7 @@ export default function Exports() {
       title: t('hero.cta.minerals'),
       tagline: t('hero.tagline'),
       description: t('home.capacity.p2'),
-      image: "/src/assets/images/regenerated_image_1778505448378.png",
+      image: "/assets/images/regenerated_image_1778505448378.png",
       link: "/exports/minerals",
       features: [t('export.f.minerals.1'), t('export.f.minerals.2'), t('export.f.minerals.3'), t('export.f.minerals.4')]
     },
@@ -29,7 +29,7 @@ export default function Exports() {
       title: t('hero.cta.seeds'),
       tagline: t('hero.tagline'),
       description: t('home.capacity.p1'),
-      image: "/src/assets/images/regenerated_image_1778504163293.png",
+      image: "/assets/images/regenerated_image_1778504163293.png",
       link: "/exports/seeds",
       features: ["SGS Certified Quality", "Modern Sorting Technology", "Bulk Supply Capacity", "Organic Grade Available"]
     },
@@ -38,7 +38,7 @@ export default function Exports() {
       title: t('hero.cta.beans'),
       tagline: t('hero.tagline'),
       description: t('home.capacity.p2'),
-      image: "/src/assets/images/regenerated_image_1778502399482.png",
+      image: "/assets/images/regenerated_image_1778502399482.png",
       link: "/exports/beans",
       features: ["99.5% Machine Cleaned", "Non-GMO Certified", "Industrial Scale Supply", "Traceable Harvesting"]
     }
