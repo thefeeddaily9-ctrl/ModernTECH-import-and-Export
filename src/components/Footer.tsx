@@ -72,7 +72,12 @@ export default function Footer() {
               </li>
               <li>
                 <span className="text-gray-400 flex items-center gap-2 group">
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform rtl:rotate-180" /> {t('footer.manufacturing')}
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform rtl:rotate-180" /> {t('footer.manufacturing.domestic')}
+                </span>
+              </li>
+              <li>
+                <span className="text-gray-400 flex items-center gap-2 group">
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform rtl:rotate-180" /> {t('footer.manufacturing.tech')}
                 </span>
               </li>
               <li>

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Coffee, ArrowRight, ShieldCheck, Globe, Zap, History, Package } from 'lucide-react';
+import { Coffee, ArrowRight, ShieldCheck, Globe, Zap, History, Package, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../lib/i18n';
 
@@ -90,7 +90,7 @@ export default function About() {
             <p className="text-gray-500 mt-4 max-w-2xl mx-auto">{t('home.synergy.desc')}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <motion.div 
               {...fadeIn}
               className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 group hover:shadow-xl transition-all"
@@ -105,7 +105,7 @@ export default function About() {
                 </a>
               </h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Recognized as a leading telecom sales pipeline provider in Africa. Empowering businesses through advanced technological infrastructure and connectivity solutions.
+                {t('about.tech.desc')}
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium whitespace-nowrap overflow-hidden">
@@ -125,9 +125,9 @@ export default function About() {
               <div className="w-14 h-14 bg-blue-100 text-blue-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-900 group-hover:text-white transition-colors">
                 <Package size={28} />
               </div>
-              <h3 className="text-2xl font-bold text-blue-900 mb-4">{t('footer.manufacturing')}</h3>
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">{t('footer.manufacturing.domestic')}</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Our heavy-industry division focused on domestic production. We are proud manufacturers of high-quality bottled water and other essential industrial products.
+                {t('about.manufacturing.desc')}
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
@@ -135,6 +135,28 @@ export default function About() {
                 </li>
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
                   <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Industrial Capacity
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div 
+              {...fadeIn}
+              transition={{ delay: 0.3 }}
+              className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 group hover:shadow-xl transition-all"
+            >
+              <div className="w-14 h-14 bg-blue-100 text-blue-900 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-900 group-hover:text-white transition-colors">
+                <BadgeCheck size={28} />
+              </div>
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">{t('footer.manufacturing.tech')}</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {t('about.tech_mfg.desc')}
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Tech Assembly & Precision
+                </li>
+                <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Local Electronic Production
                 </li>
               </ul>
             </motion.div>
@@ -182,13 +204,13 @@ export default function About() {
       <section className="py-24 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-blue-900 tracking-tight">The Moderntech Advantage</h2>
+            <h2 className="text-3xl font-bold text-blue-900 tracking-tight">{t('about.advantage.title')}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             {[
-              { icon: Globe, title: t('nav.exports'), desc: "Decades of combined experience in handling complex international trade regulations and logistics." },
-              { icon: History, title: t('about.hero.title'), desc: "Pure Ethiopian origin products with full traceability from farm to your destination." },
-              { icon: ShieldCheck, title: t('hero.tagline'), desc: "Backed by the multi-PLC strength of Moderntech Enterprises group." },
+              { icon: Globe, title: t('nav.exports'), desc: t('about.advantage.1.desc') },
+              { icon: History, title: t('hero.title.leading'), desc: t('about.advantage.2.desc') },
+              { icon: ShieldCheck, title: t('hero.tagline'), desc: t('about.advantage.3.desc') },
             ].map((item, idx) => (
               <motion.div key={idx} {...fadeIn} transition={{ delay: idx * 0.1 }} className="space-y-4">
                 <div className="w-16 h-16 bg-white border border-gray-100 shadow-sm rounded-2xl flex items-center justify-center mx-auto text-orange-500">

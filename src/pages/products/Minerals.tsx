@@ -84,17 +84,17 @@ export default function Minerals() {
               <h2 className="text-4xl font-bold text-slate-900 mb-8 tracking-tight">{t('minerals.leadership.title')}</h2>
               <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
                 <p>
-                  Moderntech Export & Import PLC has rapidly ascended to become the #1 mineral sourcing and export company in Ethiopia. Our operations bridge the gap between large-scale industrial mining and global buyers requiring consistent, high-purity supply.
+                  Moderntech Export & Import PLC has grown into a reliable presence in the Ethiopian mineral sector. Our operations bridge the gap between large-scale industrial mining and global buyers requiring consistent, high-purity supply.
                 </p>
                 <p>
-                  We maintain exclusive extraction rights and partnership agreements with the country's most resource-dense regions. Our commitment to ethical mining and rigorous quality control ensures that our minerals meet the highest international industrial standards.
+                  We maintain strategic partnerships and agreements within the country's resource-dense regions. Our commitment to ethical mining and rigorous quality control ensures that our minerals meet international industrial standards.
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
                 <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                   <TrendingUp className="text-orange-600 mb-4" size={32} />
                   <div className="font-bold text-slate-900">{t('export.f.minerals.1')}</div>
-                  <div className="text-sm text-slate-500 italic">Consistently leading national mineral export charts.</div>
+                  <div className="text-sm text-slate-500 italic">Growing our presence in the national mineral sector.</div>
                 </div>
                 <div className="p-6 bg-orange-50 rounded-2xl border border-orange-100">
                   <ShieldCheck className="text-orange-600 mb-4" size={32} />

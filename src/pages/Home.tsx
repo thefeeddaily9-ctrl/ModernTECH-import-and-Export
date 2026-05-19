@@ -15,20 +15,20 @@ export default function Home() {
 
   const products = [
     {
-      title: "Specialty Coffee",
-      description: "Direct-from-farm Arabica beans. We own 10+ industrial farms in Oromia while managing Ethiopia's most robust sourcing network to deliver premium Specialty and Commercial grades.",
+      title: t('nav.coffee'),
+      description: t('home.product.coffee.desc'),
       image: "/assets/images/regenerated_image_1778502393186.png",
       link: "/exports/coffee"
     },
     {
-      title: "Premium Minerals",
-      description: "Ethiopia's #1 Mineral powerhouse. We command a dominant supply of high-purity gold, tantalum, and precious gemstones for critical global industries.",
+      title: t('nav.minerals'),
+      description: t('home.product.minerals.desc'),
       image: "/assets/images/regenerated_image_1778505448378.png",
       link: "/exports/minerals"
     },
     {
-      title: "Pulses & Oilseeds",
-      description: "High-protein Haricot beans, Soybeans, and uniform Sesame seeds processed in modern facilities to ensure 99.5% purity and international certification.",
+      title: t('nav.seeds'),
+      description: t('home.product.seeds.desc'),
       image: "/assets/images/regenerated_image_1778502399482.png",
       link: "/exports/seeds"
     }
@@ -96,8 +96,8 @@ export default function Home() {
               {t('hero.tagline')}
             </span>
             <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-[0.9]">
-              {t('hero.title.leading')} <span className="text-orange-400">{t('hero.title.products')}</span> <br />
-              {t('hero.title.exports')}
+              {t('hero.title')} <span className="text-orange-400">{t('hero.title.span')}</span> <br />
+              {t('hero.title.growth')}
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-4xl mx-auto font-light leading-relaxed">
               {t('hero.description')}
@@ -129,10 +129,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: BadgeCheck, title: "Premium Quality", sub: "Globally Certified" },
-              { icon: Globe, title: "Global Supply", sub: "Serving 30+ Countries" },
-              { icon: Ship, title: "Efficient Logistics", sub: "Seamless Delivery" },
-              { icon: TrendingUp, title: "Export Scale", sub: "High Capacity Output" },
+              { icon: BadgeCheck, title: "Honest Quality", sub: "Grounded in Roots" },
+              { icon: Globe, title: t('stat.global_reach'), sub: "Expanding Presence" },
+              { icon: Ship, title: "Reliable Logistics", sub: "Professional Handling" },
+              { icon: TrendingUp, title: "Steady Expansion", sub: "Purposeful Growth" },
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
@@ -162,19 +162,19 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
             <motion.div {...fadeIn}>
               <div className="text-5xl md:text-6xl font-bold text-orange-500 mb-2">10+</div>
-              <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('section.stats.farms')}</div>
+              <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('stat.owned_farms')}</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.1 }}>
-              <div className="text-5xl md:text-6xl font-bold text-orange-500 mb-2">#1</div>
-              <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('section.stats.minerals')}</div>
+              <div className="text-5xl md:text-6xl font-bold text-orange-500 mb-2">3+</div>
+              <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('stat.mineral_source')}</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
               <div className="text-5xl md:text-6xl font-bold text-orange-500 mb-2">20k+</div>
               <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('section.stats.capacity')}</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.3 }}>
-              <div className="text-5xl md:text-6xl font-bold text-white mb-2">Global</div>
-              <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('section.stats.market')}</div>
+              <div className="text-5xl md:text-6xl font-bold text-white mb-2">Growing</div>
+              <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('stat.global_reach')}</div>
             </motion.div>
           </div>
         </div>
@@ -347,7 +347,16 @@ export default function Home() {
                 </div>
                 <div>
                    <div className="text-sm font-bold text-blue-900">Moderntech Manufacturing</div>
-                   <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-none">Water & Industrial Production</div>
+                   <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-none">{t('footer.manufacturing.domestic')}</div>
+                </div>
+              </div>
+              <div className="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4">
+                <div className="w-10 h-10 bg-blue-50 text-blue-900 rounded-lg flex items-center justify-center">
+                  <Zap size={20} />
+                </div>
+                <div>
+                   <div className="text-sm font-bold text-blue-900">Moderntech Tech Assembly</div>
+                   <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-none">{t('footer.manufacturing.tech')}</div>
                 </div>
               </div>
             </div>

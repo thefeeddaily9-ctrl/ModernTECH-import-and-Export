@@ -31,7 +31,7 @@ export default function Exports() {
       description: t('home.capacity.p1'),
       image: "/assets/images/regenerated_image_1778504163293.png",
       link: "/exports/seeds",
-      features: ["SGS Certified Quality", "Modern Sorting Technology", "Bulk Supply Capacity", "Organic Grade Available"]
+      features: [t('export.f.seeds.1'), t('export.f.seeds.2'), t('export.f.seeds.3'), t('export.f.seeds.4')]
     },
     {
       id: "beans",
@@ -40,7 +40,7 @@ export default function Exports() {
       description: t('home.capacity.p2'),
       image: "/assets/images/regenerated_image_1778502399482.png",
       link: "/exports/beans",
-      features: ["99.5% Machine Cleaned", "Non-GMO Certified", "Industrial Scale Supply", "Traceable Harvesting"]
+      features: [t('export.f.beans.1'), t('export.f.beans.2'), t('export.f.beans.3'), t('export.f.beans.4')]
     }
   ];
 

@@ -13,10 +13,10 @@ export default function Coffee() {
   };
 
   const regions = [
-    { name: "Yirgacheffe (Oromia)", profile: "Citrusy, floral, and light-bodied. Sourced from our primary farm clusters." },
-    { name: "Sidamo (Oromia)", profile: "Deep fruity notes with a rich aroma. Controlled organic cultivation." },
-    { name: "GuJi (Oromia)", profile: "Complex flavors with hints of jasmine. High altitude premium sourcing." },
-    { name: "Jimma & Kaffa", profile: "The birthplace. Bold, winey, and spicy. Heritage forest coffee." }
+    { name: "Yirgacheffe (Oromia)", profile: t('coffee.region.yirgacheffe') },
+    { name: "Sidamo (Oromia)", profile: t('coffee.region.sidamo') },
+    { name: "GuJi (Oromia)", profile: t('coffee.region.guji') },
+    { name: "Jimma & Kaffa", profile: t('coffee.region.jimma') }
   ];
 
   return (
@@ -76,8 +76,8 @@ export default function Coffee() {
               <div className="text-[10px] uppercase tracking-widest font-bold">{t('coffee.stat.owned')}</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-400">#1</div>
-              <div className="text-[10px] uppercase tracking-widest font-bold">{t('coffee.stat.market')}</div>
+              <div className="text-4xl font-bold text-orange-400">Steady</div>
+              <div className="text-[10px] uppercase tracking-widest font-bold">{t('coffee.stat.market_growth')}</div>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function Coffee() {
                     <MapPin size={24} />
                  </div>
                  <div>
-                    <div className="text-sm font-bold text-blue-900 uppercase tracking-tighter">Cluster Leader</div>
+                    <div className="text-sm font-bold text-blue-900 uppercase tracking-tighter">Farming Heritage</div>
                     <div className="text-xs text-gray-500">Central Oromia Operations</div>
                  </div>
               </div>
@@ -178,7 +178,7 @@ export default function Coffee() {
              <div className="lg:w-1/2">
                 <h2 className="text-4xl font-bold text-blue-900 mb-8">{t('coffee.quality.title')}</h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-10">
-                  As a leading PLC, we have invested heavily in our washing stations and hulling facilities. Our coffee undergoes a 5-step quality verification process, including laser sorting and professional cupping by certified Q-graders.
+                  {t('coffee.quality.p1')}
                 </p>
                 
                 <div className="space-y-8">
