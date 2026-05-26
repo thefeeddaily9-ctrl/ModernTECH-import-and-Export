@@ -29,7 +29,6 @@ export default function Navbar() {
         { name: t('nav.coffee'), href: '/exports/coffee', icon: Coffee },
         { name: t('nav.minerals'), href: '/exports/minerals', icon: Pickaxe },
         { name: t('nav.seeds'), href: '/exports/seeds', icon: Package },
-        { name: t('nav.beans'), href: '/exports/beans', icon: Package },
       ]
     },
     { name: t('nav.imports'), href: '/imports' },

@@ -24,9 +24,19 @@ export default function Seeds() {
       benefits: ["Non-GMO", "High Protein", "Strict Quality Grading"]
     },
     {
+      name: t('seeds.haricot.title'),
+      description: t('seeds.haricot.desc'),
+      benefits: ["Highly Uniform Size", "Hand-Sorted Quality", "Moisture Balanced"]
+    },
+    {
+      name: t('seeds.chickpea.title'),
+      description: t('seeds.chickpea.desc'),
+      benefits: ["Superior Caliber", "Nutrient-Dense Crop", "SGS Inspected"]
+    },
+    {
       name: t('seeds.niger.title'),
       description: t('seeds.niger.desc'),
-      benefits: ["Consistent Supply", "Well-Sorted", "Sustainable Sourcing"]
+      benefits: ["Consistent Clean Supply", "Wollega & Lemu Roots", "High Oil Purity"]
     }
   ];
 
@@ -88,7 +98,7 @@ export default function Seeds() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {seedTypes.map((seed, idx) => (
               <motion.div 
                 key={seed.name}

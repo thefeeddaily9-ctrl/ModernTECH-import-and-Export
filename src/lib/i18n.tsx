@@ -44,6 +44,8 @@ const translations: Translation = {
   'section.stats.minerals': { en: 'Mineral Portfolio', zh: '矿产组合', de: 'Mineralportfolio', ar: 'محفظة المعادن' },
   'section.stats.capacity': { en: 'Export Capacity', zh: '出口能力', de: 'Exportkapazität', ar: 'قدرة التصدير' },
   'section.stats.market': { en: 'Global Reach', zh: '全球化视野', de: 'Marktpräsenz', ar: 'الوصول العالمي' },
+  'section.exports.title': { en: 'Global Export Products', zh: '全球出口产品', de: 'Globale Exportprodukte', ar: 'منتجات التصدير العالمية' },
+  'section.exports.subtitle': { en: 'We combine professional grading with direct sourcing to supply high-demand commodities across three primary exports divisions.', zh: '我们将专业评级与直接采购相结合，为三个主要出口部门提供高需求大宗商品。', de: 'Wir kombinieren professionelle Einstufung mit direktem Bezug, um in drei Hauptexportbereichen stark nachgefragte Rohstoffe zu liefern.', ar: 'نحن نجمع بين التصنيف الاحترافي والتوريد المباشر لتوريد السلع عالية الطلب عبر ثلاثة أقسام تصدير رئيسية.' },
   
   // Common Buttons
   'btn.details': { en: 'View Details', zh: '查看详情', de: 'Details anzeigen', ar: 'عرض التفاصيل' },
@@ -265,6 +267,22 @@ const translations: Translation = {
   'export.f.seeds.2': { en: 'Machine Sorting Technology', zh: '机器分拣技术', de: 'Maschinelle Sortiertechnik', ar: 'تقنية الفرز الآلي' },
   'export.f.seeds.3': { en: 'Consistent Bulk Supply', zh: '持续的大宗供应', de: 'Konsistente Massenversorgung', ar: 'توريد مستمر بالجملة' },
   'export.f.seeds.4': { en: 'Harvest Traceability', zh: '收获可追溯性', de: 'Rückverfolgbarkeit der Ernte', ar: 'تتبع الحصاد' },
+
+  // Unified Seeds & Pulses translations
+  'hero.cta.seeds': { en: 'Oilseeds & Pulses', zh: '油籽与脉冲豆类', de: 'Ölsaaten & Hülsenfrüchte', ar: 'البذور الزيتية والبقوليات' },
+  'seeds.purity.title': { en: 'Purity, Quality & Traceability', zh: '纯度、质量与可追溯性', de: 'Reinheit, Qualität & Rückverfolgbarkeit', ar: 'النقاء والجودة والتتبع' },
+  'seeds.purity.desc': { en: 'We combine advanced machine-cleaning with thorough hand-sorting to deliver crops matching exact international grading standards.', zh: '我们将先进的机器清洗与细致的人工分拣相结合，提供符合国际分级标准的作物。', de: 'Wir kombinieren fortschrittliche maschinelle Reinigung mit sorgfältiger Handsortierung, um Ernten zu liefern, die den internationalen Sortierstandards entsprechen.', ar: 'نحن نجمع بين التنظيف الآلي المتقدم والفرز اليدوي الدقيق لتقديم محاصيل تطابق معايير التصنيف الدولية.' },
+  'seeds.sesame.title': { en: 'Humera & Wollega Sesame Seeds', zh: 'Humera 和 Wollega 芝麻', de: 'Humera & Wollega Sesamsamen', ar: 'سمسم هوميرا ووليجا الممتاز' },
+  'seeds.sesame.desc': { en: 'Known worldwide for their rich oil content and distinct nutty aroma, our sesame seeds are machine-cleaned to achieve the highest standards of purity.', zh: '因其丰富的含油量和独特的坚果香气而闻名于世，我们的芝麻经过机器清洁以达到最高纯度标准。', de: 'Weltweit bekannt für ihren hohen Ölgehalt und ihr ausgeprägtes nussiges Aroma. Unsere Sesamsamen werden maschinell gereinigt, um höchste Reinheitsstandards zu erfüllen.', ar: 'معروف عالمياً بمحتواه الغني من الزيت ورائحته الجوزية المميزة، يتم تنظيف بذور السمسم لدينا آلياً لتحقيق أعلى معايير النقاء.' },
+  'seeds.soy.title': { en: 'Non-GMO Soybeans', zh: '非转基因大豆', de: 'GVO-freie Sojabohnen', ar: 'فول الصويا غير المعدل وراثياً' },
+  'seeds.soy.desc': { en: 'Cultivated under natural sunshine, our soybeans present excellent protein and oil profiles with strict quality grading to satisfy global demand.', zh: '在自然阳光下栽培，我们的大豆具有优异的蛋白质和油脂特性，经过严格的质量分级，满足全球需求。', de: 'Unter natürlicher Sonne angebaut, weisen unsere Sojabohnen hervorragende Protein- und Ölprofile bei strenger Qualitätsklassifizierung auf, um den globalen Bedarf zu decken.', ar: 'يُزرع فول الصويا لدينا تحت أشعة الشمس الطبيعية، ويتميز بخصائص ممتازة من البروتين والزيت مع تصنيف جودة صارم لتلبية الطلب العالمي.' },
+  'seeds.niger.title': { en: 'Niger Seeds (Neug)', zh: '尼日尔油籽 (Neug)', de: 'Nigersamen (Neug)', ar: 'بذور النيجر (نيوج)' },
+  'seeds.niger.desc': { en: 'Rich in oil content and uniform in size, our niger seeds are carefully cleaned and sorted to exceed standard specifications for premium food applications.', zh: '含油量丰富且规格均匀，我们的尼日尔种子经过仔细清洗和分拣，超过优质食品应用的标准规格。', de: 'Nigersamen mit hohem Ölgehalt und gleichmäßiger Größe, sorgfältig gereinigt und sortiert, um die Standardvorgaben für Premium-Lebensmittelanwendungen zu übertreffen.', ar: 'تتميز بذور النيجر بغناها بمحتوى الزيت وتناسق حجمها، ويتم تنظيفها وفرزها بعناية لتتجاوز المواصفات القياسية للتطبيقات الغذائية الممتازة.' },
+  'seeds.chickpea.title': { en: 'Kabuli & Desi Chickpeas', zh: '鹰嘴豆', de: 'Kabuli & Desi Kichererbsen', ar: 'حمص كابولي وديسي' },
+  'seeds.chickpea.desc': { en: 'Sorted using mechanical gravimetric separators, our chickpeas are highly nutritious, uniform, and loaded with rich plant-based energy.', zh: '使用机械重力分选机筛选，我们的鹰嘴豆营养丰富、规格均匀，并富含丰富的植物性蛋白质。', de: 'Kichererbsen, sortiert mit mechanischen Schwerkrafttrennern, sind äußerst nahrhaft, gleichmäßig und vollgepackt mit pflanzlicher Energie.', ar: 'يتم فرز الحمص لدينا باستخدام فواصل الجاذبية الميكانيكية، وهو مغذٍ للغاية، ومتناسق، ومليء بالطاقة النباتية الغنية.' },
+  'seeds.haricot.title': { en: 'White Pea/Haricot Beans', zh: '白豌豆/菜豆', de: 'Weiße Bohnen (Haricot)', ar: 'فاصوليا بيضاء / حبة هاريكوت' },
+  'seeds.haricot.desc': { en: 'A key staple of agricultural export trade, highly uniform, hand-sorted, and stored under ideal moisture-controlled conditions to preserve freshness.', zh: '农业出口贸易的核心作物，规格高度均匀、经过人工挑选并储存于最理想的控湿系统中以保持新鲜。', de: 'Ein wichtiges Grundnahrungsmittel des Agrarexporthandels, sehr gleichmäßig, handverlesen und unter idealen, feuchtigkeitskontrollierten Bedingungen gelagert, um die Frische zu bewahren.', ar: 'عنصر أساسي في تجارة التصدير الزراعية، متناسق للغاية، يتم فرزه يدوياً وحفظه في ظروف مثالية يتم التحكم في رطوبتها للحفاظ على النضارة.' },
+
   'export.f.beans.1': { en: '99.5% Machine Cleaned', zh: '99.5% 机器清洗', de: '99,5 % maschinell gereinigt', ar: 'تنظيف آلي بنسبة 99.5٪' },
   'export.f.beans.2': { en: 'Non-GMO Identification', zh: '非转基因识别', de: 'GVO-freie Identifizierung', ar: 'تحديد المنتجات غير المعدلة وراثياً' },
   'export.f.beans.3': { en: 'Planned Supply Chains', zh: '规划的供应链', de: 'Geplante Lieferketten', ar: 'سلاسل توريد مخططة' },

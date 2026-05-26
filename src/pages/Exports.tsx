@@ -28,19 +28,10 @@ export default function Exports() {
       id: "seeds",
       title: t('hero.cta.seeds'),
       tagline: t('hero.tagline'),
-      description: t('home.capacity.p1'),
+      description: t('home.product.seeds.desc'),
       image: "/assets/images/regenerated_image_1778504163293.png",
       link: "/exports/seeds",
       features: [t('export.f.seeds.1'), t('export.f.seeds.2'), t('export.f.seeds.3'), t('export.f.seeds.4')]
-    },
-    {
-      id: "beans",
-      title: t('hero.cta.beans'),
-      tagline: t('hero.tagline'),
-      description: t('home.capacity.p2'),
-      image: "/assets/images/regenerated_image_1778502399482.png",
-      link: "/exports/beans",
-      features: [t('export.f.beans.1'), t('export.f.beans.2'), t('export.f.beans.3'), t('export.f.beans.4')]
     }
   ];
 

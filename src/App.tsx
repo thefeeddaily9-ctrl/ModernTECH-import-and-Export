@@ -19,7 +19,6 @@ import Exports from './pages/Exports';
 import Coffee from './pages/products/Coffee';
 import Minerals from './pages/products/Minerals';
 import Seeds from './pages/products/Seeds';
-import Beans from './pages/products/Beans';
 import Imports from './pages/Imports';
 import Contact from './pages/Contact';
 
@@ -56,7 +55,6 @@ export default function App() {
                 <Route path="/exports/coffee" element={<Coffee />} />
                 <Route path="/exports/minerals" element={<Minerals />} />
                 <Route path="/exports/seeds" element={<Seeds />} />
-                <Route path="/exports/beans" element={<Beans />} />
                 <Route path="/imports" element={<Imports />} />
                 <Route path="/contact" element={<Contact />} />
               </Routes>
