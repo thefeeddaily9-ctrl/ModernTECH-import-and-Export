@@ -69,12 +69,12 @@ export default function Contact() {
                     <h4 className="text-xl font-bold text-blue-900 mb-1 uppercase tracking-tighter">{t('contact.locations')}</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <p className="text-blue-900 font-bold text-sm">Addis Ababa, Ethiopia</p>
-                        <p className="text-gray-500 text-sm leading-relaxed">{t('footer.description').includes('Addis') ? 'Africa Avenue, Africa Insurance 3rd floor' : 'Africa Avenue, Africa Insurance 3rd floor'}</p>
+                        <p className="text-blue-900 font-bold text-sm">{t('contact.address.hq.title')}</p>
+                        <p className="text-gray-500 text-sm leading-relaxed">{t('contact.address.hq.desc')}</p>
                       </div>
                       <div>
-                        <p className="text-blue-900 font-bold text-sm">Dubai, UAE</p>
-                        <p className="text-gray-500 text-sm leading-relaxed">Strategic Business Hub, Dubai</p>
+                        <p className="text-blue-900 font-bold text-sm">{t('contact.address.uae.title')}</p>
+                        <p className="text-gray-500 text-sm leading-relaxed">{t('contact.address.uae.desc')}</p>
                       </div>
                     </div>
                   </div>
@@ -196,8 +196,8 @@ export default function Contact() {
         <div className="relative h-full flex items-center justify-center">
             <div className="p-6 bg-white rounded-2xl shadow-2xl border border-gray-100 text-center max-w-xs">
                 <MapPin className="text-orange-500 mx-auto mb-4" size={32} />
-                <h4 className="font-bold text-blue-900 mb-2">Our Presence</h4>
-                <p className="text-xs text-gray-500 leading-relaxed uppercase tracking-tighter">Strategic Handling Offices in Addis Ababa and Dubai.</p>
+                <h4 className="font-bold text-blue-900 mb-2">{t('contact.presence.title')}</h4>
+                <p className="text-xs text-gray-500 leading-relaxed uppercase tracking-tighter">{t('contact.presence.desc')}</p>
             </div>
         </div>
       </section>

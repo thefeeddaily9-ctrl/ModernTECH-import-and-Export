@@ -97,9 +97,9 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="text-orange-500 mt-1 shrink-0" size={18} />
                 <div className="flex flex-col text-gray-400 text-sm leading-tight">
-                  <span className="font-bold text-white mb-1">Africa Avenue, Africa Insurance 3rd floor</span>
-                  <span>Addis Ababa, Ethiopia</span>
-                  <span className="mt-1">Dubai, UAE</span>
+                  <span className="font-bold text-white mb-1">{t('contact.address.hq.desc')}</span>
+                  <span>{t('contact.address.hq.title')}</span>
+                  <span className="mt-1">{t('contact.address.uae.title')}</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">

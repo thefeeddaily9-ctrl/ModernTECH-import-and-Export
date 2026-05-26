@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { BadgeCheck, Globe, Coffee, Package, Ship, ArrowRight, TrendingUp, Users, Pickaxe, Zap, Quote, Star } from 'lucide-react';
+import { BadgeCheck, Globe, Coffee, Package, Ship, ArrowRight, TrendingUp, Users, Pickaxe, Zap, Quote, Star, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../lib/i18n';
 
@@ -69,7 +69,7 @@ export default function Home() {
           <div className="w-1/2 h-full relative overflow-hidden">
             <img 
               src="/assets/images/regenerated_image_1778502393186.png" 
-              alt="Premium Ethiopian Specialty Coffee Beans from Oromia Region" 
+              alt={t('nav.coffee')} 
               className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-60"
               referrerPolicy="no-referrer"
             />
@@ -77,7 +77,7 @@ export default function Home() {
           <div className="w-1/2 h-full relative overflow-hidden">
             <img 
               src="/assets/images/regenerated_image_1778505448378.png" 
-              alt="Ethiopian Mineral Resources and Gold Extraction Industry" 
+              alt={t('nav.minerals')} 
               className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-60"
               referrerPolicy="no-referrer"
             />
@@ -129,10 +129,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: BadgeCheck, title: "Honest Quality", sub: "Grounded in Roots" },
-              { icon: Globe, title: t('stat.global_reach'), sub: "Expanding Presence" },
-              { icon: Ship, title: "Reliable Logistics", sub: "Professional Handling" },
-              { icon: TrendingUp, title: "Steady Expansion", sub: "Purposeful Growth" },
+              { icon: BadgeCheck, title: t('export.f.coffee.3'), sub: t('hero.title.leading') },
+              { icon: Globe, title: t('stat.global_reach'), sub: t('home.capacity.tag') },
+              { icon: Ship, title: t('export.f.minerals.4'), sub: t('label.global_express') },
+              { icon: TrendingUp, title: t('coffee.stat.market_growth'), sub: t('home.capacity.tag') },
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
@@ -173,7 +173,7 @@ export default function Home() {
               <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('section.stats.capacity')}</div>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.3 }}>
-              <div className="text-5xl md:text-6xl font-bold text-white mb-2">Growing</div>
+              <div className="text-5xl md:text-6xl font-bold text-white mb-2">{t('label.growing')}</div>
               <div className="text-xs uppercase tracking-[0.3em] font-bold text-blue-200">{t('stat.global_reach')}</div>
             </motion.div>
           </div>
@@ -212,7 +212,7 @@ export default function Home() {
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl relative z-10">
                 <img 
                   src="/assets/images/regenerated_image_1778502385742.png" 
-                  alt="Moderntech Industrial Sourcing and Export Logistics Infrastructure" 
+                  alt={t('home.synergy.title')} 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -224,7 +224,7 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-blue-900">100%</div>
-                    <div className="text-xs text-gray-500 uppercase tracking-tighter">Farmer Direct Sourcing</div>
+                    <div className="text-xs text-gray-500 uppercase tracking-tighter">{t('minerals.capability.1.title')}</div>
                   </div>
                 </div>
                 <div className="text-sm text-gray-400">Ensuring fair trade and traceability.</div>
@@ -337,7 +337,7 @@ export default function Home() {
                   <Zap size={20} />
                 </div>
                 <div>
-                   <div className="text-sm font-bold text-blue-900">Moderntech Technologies</div>
+                   <div className="text-sm font-bold text-blue-900">{t('footer.technologies')}</div>
                    <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-none">Telecom & IT Solutions</div>
                 </div>
               </a>
@@ -346,17 +346,17 @@ export default function Home() {
                   <Package size={20} />
                 </div>
                 <div>
-                   <div className="text-sm font-bold text-blue-900">Moderntech Manufacturing</div>
+                   <div className="text-sm font-bold text-blue-900">{t('footer.manufacturing.domestic')}</div>
                    <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-none">{t('footer.manufacturing.domestic')}</div>
                 </div>
               </div>
               <div className="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4">
                 <div className="w-10 h-10 bg-blue-50 text-blue-900 rounded-lg flex items-center justify-center">
-                  <Zap size={20} />
+                  <Settings size={20} />
                 </div>
                 <div>
-                   <div className="text-sm font-bold text-blue-900">Moderntech Tech Assembly</div>
-                   <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-none">{t('footer.manufacturing.tech')}</div>
+                   <div className="text-sm font-bold text-blue-900">{t('footer.manufacturing.tech')}</div>
+                   <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-none">Tech Assembly & Precision</div>
                 </div>
               </div>
             </div>

@@ -101,7 +101,7 @@ export default function About() {
               <h3 className="text-2xl font-bold text-blue-900 mb-4 flex items-center justify-between">
                 {t('footer.technologies')}
                 <a href="https://www.moderntechethiopia.com/" target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-orange-500 hover:text-orange-600 flex items-center gap-1">
-                  Visit Site <ArrowRight size={14} />
+                  {t('label.visit_site')} <ArrowRight size={14} />
                 </a>
               </h3>
               <p className="text-gray-600 leading-relaxed mb-6">
@@ -109,10 +109,10 @@ export default function About() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium whitespace-nowrap overflow-hidden">
-                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Telecom Infrastructure
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> {t('about.tech.telecom')}
                 </li>
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Sales Pipeline Solutions
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> {t('about.tech.sales')}
                 </li>
               </ul>
             </motion.div>
@@ -131,10 +131,10 @@ export default function About() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Water Bottling & Manufacturing
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> {t('about.manufacturing.water')}
                 </li>
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Industrial Capacity
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> {t('about.manufacturing.industrial')}
                 </li>
               </ul>
             </motion.div>
@@ -153,10 +153,10 @@ export default function About() {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Tech Assembly & Precision
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> {t('about.tech_mfg.assembly')}
                 </li>
                 <li className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> Local Electronic Production
+                  <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div> {t('about.tech_mfg.electronic')}
                 </li>
               </ul>
             </motion.div>
@@ -173,10 +173,10 @@ export default function About() {
                 <Globe size={160} />
               </div>
               <h3 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                <div className="h-10 w-1 bg-orange-500"></div> Our Mission
+                <div className="h-10 w-1 bg-orange-500"></div> {t('label.our_mission')}
               </h3>
               <p className="text-xl text-blue-100 font-light leading-relaxed">
-                To be the most reliable link between Ethiopian agricultural excellence and global industry needs, delivering quality through innovation and integrity.
+                {t('label.mission_desc')}
               </p>
             </motion.div>
 

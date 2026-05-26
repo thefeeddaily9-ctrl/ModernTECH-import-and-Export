@@ -6,10 +6,10 @@ import { useTranslation } from '../lib/i18n';
 export default function Imports() {
   const { t } = useTranslation();
   const importItems = [
-    { name: "Vehicles & Transportation", icon: Truck, desc: "Sourcing and importing high-quality commercial and private vehicles." },
-    { name: "Industrial Machinery", icon: Settings, desc: "Providing the Ethiopian industrial sector with advanced machinery and tools." },
-    { name: "Spare Parts", icon: Zap, desc: "Critical automotive and industrial spare parts supply chain." },
-    { name: "Plastics & Materials", icon: Droplets, desc: "Industrial plastics for water filling and food-grade packaging." }
+    { name: t('imports.cat.vehicles'), icon: Truck, desc: t('imports.cat.vehicles.desc') },
+    { name: t('imports.cat.machinery'), icon: Settings, desc: t('imports.cat.machinery.desc') },
+    { name: t('imports.cat.parts'), icon: Zap, desc: t('imports.cat.parts.desc') },
+    { name: t('imports.cat.materials'), icon: Droplets, desc: t('imports.cat.materials.desc') }
   ];
 
   return (
@@ -36,7 +36,7 @@ export default function Imports() {
             <span className="text-orange-500 font-bold uppercase tracking-[0.3em] text-xs mb-4 block">{t('hero.tagline')}</span>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight">
               {t('nav.imports')} <br />
-              <span className="text-orange-400 italic">Infrastructure</span>
+              <span className="text-orange-400 italic">{t('imports.hero.infrastructure')}</span>
             </h1>
             <p className="text-xl text-blue-100 max-w-xl leading-relaxed font-light">
               {t('home.capacity.p1')}
@@ -75,10 +75,10 @@ export default function Imports() {
       <section className="py-24 bg-white text-center border-t border-gray-50">
         <div className="max-w-2xl mx-auto px-4">
           <p className="text-gray-600 mb-8 italic">
-            "Our import division supports Ethiopia's growing infrastructure by providing reliable access to global technical resources."
+            "{t('imports.cta.quote')}"
           </p>
           <Link to="/contact" className="text-blue-900 font-bold flex items-center justify-center gap-2 hover:text-orange-500 transition-colors uppercase tracking-widest text-sm">
-            Inquire about import partnerships <ArrowRight size={18} />
+            {t('imports.cta.partnership')} <ArrowRight size={18} />
           </Link>
         </div>
       </section>
