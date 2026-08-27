@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Package, CheckCircle2, TrendingUp, Ship, ArrowRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../lib/i18n';
+import CMSImage from '../../components/CMSImage';
 
 export default function Seeds() {
   const { t } = useTranslation();
@@ -94,7 +95,12 @@ export default function Seeds() {
               viewport={{ once: true }}
               className="rounded-3xl overflow-hidden shadow-2xl h-[500px]"
             >
-              <img src="/assets/images/regenerated_image_1778502399482.png" alt="Sesame Seeds" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <CMSImage 
+                imageKey="seeds_showcase"
+                fallback="/assets/images/regenerated_image_1778502399482.png" 
+                alt="Sesame Seeds" 
+                className="w-full h-full object-cover" 
+              />
             </motion.div>
           </div>
 

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter, ArrowRight } from 'lucide-react';
 import { useTranslation } from '../lib/i18n';
+import { useAdmin } from '../lib/AdminContext';
 
 export default function Footer() {
   const { t, lang } = useTranslation();
+  const { handleLogoClick } = useAdmin();
 
   return (
     <footer id="main-footer" className="bg-blue-950 text-white pt-16 pb-8 ltr:text-left rtl:text-right">
@@ -11,7 +13,11 @@ export default function Footer() {
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 ${lang === 'ar' ? 'rtl' : 'ltr'}`}>
           {/* Brand Column */}
           <div className="space-y-6">
-            <Link to="/" className="flex flex-col">
+            <Link 
+              to="/" 
+              onClick={() => handleLogoClick()}
+              className="flex flex-col select-none cursor-pointer"
+            >
               <span className="text-2xl font-bold tracking-tighter text-white">
                 MODERNTECH
               </span>
@@ -106,7 +112,7 @@ export default function Footer() {
                 <Phone className="text-orange-500 mt-1 shrink-0" size={18} />
                 <div className="flex flex-col text-gray-400 text-sm font-mono">
                    <span>+251 911 256838</span>
-                   <span>+251 118 2233301</span>
+                   <span>+251 118 223301</span>
                 </div>
               </li>
               <li className="flex items-center gap-3">
@@ -119,9 +125,12 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-blue-900/50 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold">
           <p>© {new Date().getFullYear()} Moderntech Export & Import PLC. {t('footer.rights')}</p>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/admin" className="hover:text-orange-400 transition-colors flex items-center gap-1 text-gray-400">
+              Admin Portal
+            </Link>
           </div>
         </div>
       </div>

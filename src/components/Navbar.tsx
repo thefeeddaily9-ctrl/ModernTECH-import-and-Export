@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, Globe, Coffee, Package, Ship, Phone, Pickaxe } fr
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useTranslation } from '../lib/i18n';
+import { useAdmin } from '../lib/AdminContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ export default function Navbar() {
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const location = useLocation();
   const { lang, setLang, t } = useTranslation();
+  const { handleLogoClick } = useAdmin();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +56,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ltr:text-left rtl:text-right">
         <div className="flex justify-between items-center ltr:flex-row rtl:flex-row-reverse">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex flex-col">
+            <Link 
+              to="/" 
+              onClick={(e) => {
+                handleLogoClick();
+              }}
+              className="flex flex-col cursor-pointer select-none"
+              title="Moderntech Export & Import PLC"
+            >
               <span className={`text-2xl font-bold tracking-tighter ${isScrolled || location.pathname !== '/' ? 'text-blue-900' : 'text-white'}`}>
                 MODERNTECH
               </span>

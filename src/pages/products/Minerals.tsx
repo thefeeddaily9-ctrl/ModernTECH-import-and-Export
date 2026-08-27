@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Package, CheckCircle2, Globe, Ship, ArrowRight, Pickaxe, TrendingUp, ShieldCheck, Gem } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../lib/i18n';
+import CMSImage from '../../components/CMSImage';
 
 export default function Minerals() {
   const { t } = useTranslation();
@@ -16,19 +17,22 @@ export default function Minerals() {
     {
       name: t('minerals.gold.title'),
       description: t('minerals.gold.desc'),
-      image: "/assets/images/regenerated_image_1778505448378.png",
+      imageKey: "minerals_prod_gold",
+      fallback: "/assets/images/regenerated_image_1778505448378.png",
       standards: t('minerals.standards.gold')
     },
     {
       name: t('minerals.tech.title'),
       description: t('minerals.tech.desc'),
-      image: "/assets/images/regenerated_image_1778504652929.png",
+      imageKey: "minerals_prod_tech",
+      fallback: "/assets/images/regenerated_image_1778504652929.png",
       standards: t('minerals.standards.grade')
     },
     {
       name: t('minerals.gems.title'),
       description: t('minerals.gems.desc'),
-      image: "/assets/images/regenerated_image_1778504655777.png",
+      imageKey: "minerals_prod_gems",
+      fallback: "/assets/images/regenerated_image_1778504655777.png",
       standards: t('minerals.standards.ethical')
     }
   ];
@@ -38,11 +42,11 @@ export default function Minerals() {
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1516192511155-07202167386d?auto=format&fit=crop&q=80&w=2000" 
+          <CMSImage 
+            imageKey="minerals_hero_bg"
+            fallback="https://images.unsplash.com/photo-1516192511155-07202167386d?auto=format&fit=crop&q=80&w=2000" 
             alt="Ethiopian Mineral Mining" 
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[2px]"></div>
         </div>
@@ -54,14 +58,14 @@ export default function Minerals() {
             transition={{ duration: 0.8 }}
           >
             <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.3em] uppercase bg-orange-600 text-white rounded-full">
-              {t('hero.tagline')}
+              {t('minerals.hero.tag')}
             </span>
             <h1 className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 max-w-4xl mx-auto leading-tight">
-              {t('nav.exports')} <br />
-              <span className="text-orange-500">{t('home.export.title')}</span>
+              {t('nav.minerals')} <br />
+              <span className="text-orange-500">{t('minerals.hero.title')}</span>
             </h1>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-              {t('home.capacity.p1')}
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+              {t('minerals.hero.subtitle')}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact" className="px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-md font-bold text-lg transition-all shadow-2xl shadow-orange-500/30">
@@ -106,18 +110,38 @@ export default function Minerals() {
             <div className="relative grid grid-cols-2 gap-4 group/grid">
               <div className="space-y-4">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                  <img src="/assets/images/regenerated_image_1778505215239.png" alt="Mining Extraction" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey="minerals_grid_extraction" 
+                    fallback="/assets/images/regenerated_image_1778505215239.png" 
+                    alt="Mining Extraction" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                  <img src="/assets/images/regenerated_image_1778505226563.png" alt="Resource Aggregation" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey="minerals_grid_aggregation" 
+                    fallback="/assets/images/regenerated_image_1778505226563.png" 
+                    alt="Resource Aggregation" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
               </div>
               <div className="space-y-4 mt-8">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:translate-y-1">
-                  <img src="/assets/images/regenerated_image_1778505220555.png" alt="Industrial Facility" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey="minerals_grid_industrial" 
+                    fallback="/assets/images/regenerated_image_1778505220555.png" 
+                    alt="Industrial Facility" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:translate-y-1">
-                  <img src="/assets/images/regenerated_image_1778505230834.png" alt="Quality Control" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey="minerals_grid_qc" 
+                    fallback="/assets/images/regenerated_image_1778505230834.png" 
+                    alt="Quality Control" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
               </div>
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange-500/10 rounded-full blur-[80px] -z-10 group-hover/grid:bg-orange-500/20 transition-colors duration-700"></div>
@@ -131,7 +155,7 @@ export default function Minerals() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 tracking-tight">{t('section.stats.minerals')}</h2>
-            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">{t('home.capacity.p1')}</p>
+            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">{t('home.product.minerals.desc')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -143,7 +167,12 @@ export default function Minerals() {
                 className="group flex flex-col h-full bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:border-orange-200 transition-all"
               >
                 <div className="aspect-video overflow-hidden relative">
-                  <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey={item.imageKey} 
+                    fallback={item.fallback} 
+                    alt={item.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  />
                   <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-slate-900 shadow-sm uppercase tracking-widest">
                     <Package size={14} className="text-orange-500" /> {item.standards}
                   </div>
@@ -178,10 +207,20 @@ export default function Minerals() {
             <div className="order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-4">
                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
-                    <img src="/assets/images/regenerated_image_1778503049133.png" alt="Mining Equipment" className="w-full h-full object-cover" />
+                    <CMSImage 
+                      imageKey="minerals_equip_1" 
+                      fallback="/assets/images/regenerated_image_1778503049133.png" 
+                      alt="Mining Equipment" 
+                      className="w-full h-full object-cover" 
+                    />
                  </div>
                  <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-lg translate-y-8">
-                    <img src="/assets/images/regenerated_image_1778503054691.png" alt="Processing Facility" className="w-full h-full object-cover" />
+                    <CMSImage 
+                      imageKey="minerals_equip_2" 
+                      fallback="/assets/images/regenerated_image_1778503054691.png" 
+                      alt="Processing Facility" 
+                      className="w-full h-full object-cover" 
+                    />
                  </div>
               </div>
             </div>

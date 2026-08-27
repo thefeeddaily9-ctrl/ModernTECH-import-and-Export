@@ -2,9 +2,12 @@ import { motion } from 'motion/react';
 import { BadgeCheck, Globe, Coffee, Package, Ship, ArrowRight, TrendingUp, Users, Pickaxe, Zap, Quote, Star, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../lib/i18n';
+import CMSImage from '../components/CMSImage';
+import { useImageCMS } from '../lib/ImageCMSContext';
 
 export default function Home() {
   const { t, lang } = useTranslation();
+  const { getImage } = useImageCMS();
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -17,19 +20,22 @@ export default function Home() {
     {
       title: t('nav.coffee'),
       description: t('home.product.coffee.desc'),
-      image: "/assets/images/regenerated_image_1778502393186.png",
+      imageKey: "home_export_card_coffee",
+      fallback: "/assets/images/regenerated_image_1778502393186.png",
       link: "/exports/coffee"
     },
     {
       title: t('nav.minerals'),
       description: t('home.product.minerals.desc'),
-      image: "/assets/images/regenerated_image_1778505448378.png",
+      imageKey: "home_export_card_minerals",
+      fallback: "/assets/images/regenerated_image_1778505448378.png",
       link: "/exports/minerals"
     },
     {
       title: t('nav.seeds'),
       description: t('home.product.seeds.desc'),
-      image: "/assets/images/regenerated_image_1778502399482.png",
+      imageKey: "home_export_card_seeds",
+      fallback: "/assets/images/regenerated_image_1778502399482.png",
       link: "/exports/seeds"
     }
   ];
@@ -67,19 +73,19 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0 flex">
           <div className="w-1/2 h-full relative overflow-hidden">
-            <img 
-              src="/assets/images/regenerated_image_1778502393186.png" 
+            <CMSImage 
+              imageKey="home_hero_bg"
+              fallback="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000"
               alt={t('nav.coffee')} 
               className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-60"
-              referrerPolicy="no-referrer"
             />
           </div>
           <div className="w-1/2 h-full relative overflow-hidden">
-            <img 
-              src="/assets/images/regenerated_image_1778505448378.png" 
+            <CMSImage 
+              imageKey="home_export_card_minerals"
+              fallback="/assets/images/regenerated_image_1778505448378.png"
               alt={t('nav.minerals')} 
               className="w-full h-full object-cover scale-105 animate-slow-zoom opacity-60"
-              referrerPolicy="no-referrer"
             />
           </div>
           <div className="absolute inset-0 bg-blue-950/50 backdrop-blur-[2px]"></div>
@@ -210,11 +216,11 @@ export default function Home() {
               className="relative"
             >
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl relative z-10">
-                <img 
-                  src="/assets/images/regenerated_image_1778502385742.png" 
+                <CMSImage 
+                  imageKey="home_manufacturing_banner"
+                  fallback="/assets/images/regenerated_image_1778502385742.png"
                   alt={t('home.synergy.title')} 
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-2xl shadow-xl z-20 hidden md:block">
@@ -252,11 +258,11 @@ export default function Home() {
                 className="group flex flex-col h-full border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={product.image} 
+                  <CMSImage 
+                    imageKey={product.imageKey}
+                    fallback={product.fallback}
                     alt={`Premium Ethiopian ${product.title} Export Grade`} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors"></div>
                 </div>

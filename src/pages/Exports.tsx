@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Coffee, Package, Ship, ArrowRight, CheckCircle2, Globe, Pickaxe, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../lib/i18n';
+import CMSImage from '../components/CMSImage';
 
 export default function Exports() {
   const { t } = useTranslation();
@@ -11,7 +12,8 @@ export default function Exports() {
       title: t('hero.cta.coffee'),
       tagline: t('hero.tagline'),
       description: t('home.capacity.p1'),
-      image: "/assets/images/regenerated_image_1778502393186.png",
+      imageKey: "exports_cat_coffee",
+      fallback: "/assets/images/regenerated_image_1778502393186.png",
       link: "/exports/coffee",
       features: [t('export.f.coffee.1'), t('export.f.coffee.2'), t('export.f.coffee.3'), t('export.f.coffee.4')]
     },
@@ -20,7 +22,8 @@ export default function Exports() {
       title: t('hero.cta.minerals'),
       tagline: t('hero.tagline'),
       description: t('home.capacity.p2'),
-      image: "/assets/images/regenerated_image_1778505448378.png",
+      imageKey: "exports_cat_minerals",
+      fallback: "/assets/images/regenerated_image_1778505448378.png",
       link: "/exports/minerals",
       features: [t('export.f.minerals.1'), t('export.f.minerals.2'), t('export.f.minerals.3'), t('export.f.minerals.4')]
     },
@@ -29,7 +32,8 @@ export default function Exports() {
       title: t('hero.cta.seeds'),
       tagline: t('hero.tagline'),
       description: t('home.product.seeds.desc'),
-      image: "/assets/images/regenerated_image_1778504163293.png",
+      imageKey: "exports_cat_seeds",
+      fallback: "/assets/images/regenerated_image_1778504163293.png",
       link: "/exports/seeds",
       features: [t('export.f.seeds.1'), t('export.f.seeds.2'), t('export.f.seeds.3'), t('export.f.seeds.4')]
     }
@@ -103,7 +107,12 @@ export default function Exports() {
               >
                 <div className="relative group">
                   <div className="aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl">
-                    <img src={cat.image} alt={cat.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+                    <CMSImage 
+                      imageKey={cat.imageKey} 
+                      fallback={cat.fallback} 
+                      alt={cat.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
                   </div>
                   <div className="absolute -bottom-6 -right-6 p-6 bg-white rounded-2xl shadow-xl hidden md:flex items-center gap-4">
                     <div className="w-12 h-12 bg-blue-50 text-blue-900 rounded-full flex items-center justify-center">

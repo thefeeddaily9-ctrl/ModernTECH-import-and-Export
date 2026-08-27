@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Truck, Zap, Droplets, Settings, ArrowRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../lib/i18n';
+import CMSImage from '../components/CMSImage';
 
 export default function Imports() {
   const { t } = useTranslation();
@@ -17,11 +18,11 @@ export default function Imports() {
       {/* Hero Header */}
       <section className="relative py-32 bg-blue-950 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/assets/images/regenerated_image_1778502385742.png" 
+          <CMSImage 
+            imageKey="imports_hero_bg"
+            fallback="/assets/images/regenerated_image_1778502385742.png"
             alt="International Logistics"
             className="w-full h-full object-cover opacity-20 pointer-events-none"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-blue-950/80 to-transparent"></div>
         </div>

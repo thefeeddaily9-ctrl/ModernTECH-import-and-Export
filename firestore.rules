@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isAdmin() {
+      return request.auth != null && 
+        (request.auth.token.email.lower() == 'abdi@moderntechethiopia.com' ||
+         request.auth.token.email.lower() == 'thefeeddaily9@gmail.com' ||
+         request.auth.token.email.lower() == 'brakilu7@gmail.com');
+    }
+
+    match /inquiries/{inquiryId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /activity_logs/{logId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /website_images/{imageId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /images/{imageId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+  }
+}

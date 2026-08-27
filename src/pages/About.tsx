@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Coffee, ArrowRight, ShieldCheck, Globe, Zap, History, Package, BadgeCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../lib/i18n';
+import CMSImage from '../components/CMSImage';
 
 export default function About() {
   const { t } = useTranslation();
@@ -62,18 +63,38 @@ export default function About() {
             >
               <div className="space-y-4">
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img src="/assets/images/regenerated_image_1778504163293.png" alt="Coffee farming" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey="about_farm_photo"
+                    fallback="/assets/images/regenerated_image_1778504163293.png"
+                    alt="Coffee farming" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
                 <div className="aspect-square rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img src="/assets/images/regenerated_image_1778502385742.png" alt="Logistics" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey="about_logistics_photo"
+                    fallback="/assets/images/regenerated_image_1778502385742.png"
+                    alt="Logistics" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
               </div>
               <div className="space-y-4 pt-12">
                 <div className="aspect-square rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img src="/assets/images/regenerated_image_1778502399482.png" alt="Seeds" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey="about_seeds_photo"
+                    fallback="/assets/images/regenerated_image_1778502399482.png"
+                    alt="Seeds" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img src="/assets/images/regenerated_image_1778504171098.png" alt="Coffee beans" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <CMSImage 
+                    imageKey="about_coffee_beans"
+                    fallback="/assets/images/regenerated_image_1778504171098.png"
+                    alt="Coffee beans" 
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                  />
                 </div>
               </div>
             </motion.div>
