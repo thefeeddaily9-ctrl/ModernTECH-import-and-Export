@@ -1,19 +1,30 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, Loader2 } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from '../lib/i18n';
 import { saveInquiry } from '../lib/firebase';
 
 export default function Contact() {
   const { t } = useTranslation();
+  const [searchParams] = useSearchParams();
+  const initialSubject = searchParams.get('subject') || 'Ethiopian Green Coffee Inquiry';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    subject: 'Ethiopian Green Coffee Inquiry',
+    subject: initialSubject,
     volume: '1 FCL Container (~19.2 MT)',
     message: ''
   });
+
+  useEffect(() => {
+    const subj = searchParams.get('subject');
+    if (subj) {
+      setFormData((prev) => ({ ...prev, subject: subj }));
+    }
+  }, [searchParams]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -223,7 +234,25 @@ export default function Contact() {
                           <option value="Sesame Seeds (Humera / Wollega)">Sesame Seeds (Humera / Wollega)</option>
                           <option value="Soybeans / Chickpeas / Niger Seeds">Soybeans & Pulses</option>
                           <option value="High-Purity Minerals (Gold/Tantalum/Opal)">High-Purity Minerals</option>
-                          <option value="Import Sourcing Services">Import Services</option>
+                          <option value="Heavy Vehicles & Fleet Procurement Inquiry">Heavy Vehicles & Fleet Procurement</option>
+                          <option value="Industrial Machinery & Equipment Import Inquiry">Industrial Machinery & Equipment Import</option>
+                          <option value="Spare Parts & Electrical Equipment Procurement">Spare Parts & Electrical Equipment</option>
+                          <option value="Industrial Raw Materials & Chemical Feeds Inquiry">Industrial Raw Materials & Chemicals</option>
+                          <option value="Import Sourcing Services">General Import Services</option>
+                          {formData.subject && ![
+                            'Ethiopian Green Coffee - Specialty G1/G2',
+                            'Ethiopian Green Coffee - Commercial G4/G5',
+                            'Sesame Seeds (Humera / Wollega)',
+                            'Soybeans / Chickpeas / Niger Seeds',
+                            'High-Purity Minerals (Gold/Tantalum/Opal)',
+                            'Heavy Vehicles & Fleet Procurement Inquiry',
+                            'Industrial Machinery & Equipment Import Inquiry',
+                            'Spare Parts & Electrical Equipment Procurement',
+                            'Industrial Raw Materials & Chemical Feeds Inquiry',
+                            'Import Sourcing Services'
+                          ].includes(formData.subject) && (
+                            <option value={formData.subject}>{formData.subject}</option>
+                          )}
                         </select>
                       </div>
 

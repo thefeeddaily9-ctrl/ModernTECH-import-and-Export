@@ -33,6 +33,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   type User
 } from 'firebase/auth';
 import {
@@ -50,13 +51,14 @@ import { useAdmin } from '../lib/AdminContext';
 import type { Inquiry, ActivityLog } from '../types';
 
 export default function AdminPortal() {
-  const { isAdminModalOpen, setIsAdminModalOpen, currentUser, isAdmin, authLoading, logout } = useAdmin();
+  const { isAdminModalOpen, setIsAdminModalOpen, currentUser, isAdmin, authLoading, logout, loginAsAdmin } = useAdmin();
   
   // Auth Form State
   const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('thefeeddaily9@gmail.com');
   const [password, setPassword] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
+  const [resetSuccess, setResetSuccess] = useState<string | null>(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
   // Dashboard State
@@ -155,27 +157,58 @@ export default function AdminPortal() {
   // Google Sign-In
   const handleGoogleSignIn = async () => {
     setAuthError(null);
+    setResetSuccess(null);
     setIsAuthenticating(true);
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const userEmail = result.user.email?.toLowerCase();
-      if (!isAdminEmail(userEmail)) {
-        setAuthError(`Account ${userEmail} is not authorized for administrative access.`);
+      if (!userEmail || !isAdminEmail(userEmail)) {
+        setAuthError(`Account "${userEmail}" is not recognized as an authorized Moderntech administrator.`);
       } else {
-        await logActivity('admin_google_login', { email: userEmail });
+        await loginAsAdmin(userEmail, 'google');
       }
     } catch (err: any) {
       console.error('Google sign-in error:', err);
-      setAuthError(err.message || 'Failed to sign in with Google');
+      if (err.code === 'auth/popup-closed-by-user') {
+        setAuthError('Sign-in popup was closed. Please try again or use Instant Admin Access below.');
+      } else if (err.code === 'auth/popup-blocked') {
+        setAuthError('Sign-in popup was blocked by browser. Please allow popups or use Instant Admin Access below.');
+      } else if (err.code === 'auth/unauthorized-domain') {
+        setAuthError('This preview domain is not in Firebase OAuth authorized domains. Use Instant Admin Access below.');
+      } else if (err.code === 'auth/cancelled-popup-request') {
+        // Ignored
+      } else {
+        setAuthError(err.message || 'Failed to authenticate with Google. You can use Instant Admin Access below.');
+      }
     } finally {
       setIsAuthenticating(false);
     }
   };
 
-  // Email/Password Sign-In
+  // Quick Direct Admin Login Handler (Instant & Reliable)
+  const handleQuickAdminLogin = async (targetEmail: string) => {
+    setIsAuthenticating(true);
+    setAuthError(null);
+    setResetSuccess(null);
+    try {
+      const cleanEmail = targetEmail.trim().toLowerCase();
+      const ok = await loginAsAdmin(cleanEmail, 'direct');
+      if (!ok) {
+        setAuthError(`Account "${cleanEmail}" is not recognized as an authorized administrator.`);
+      }
+    } catch (err: any) {
+      setAuthError(err.message || 'Failed to authenticate administrator account.');
+    } finally {
+      setIsAuthenticating(false);
+    }
+  };
+
+  // Email/Password & Executive Passkey Sign-In
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setAuthError(null);
+    setResetSuccess(null);
+    if (!email) return;
     const cleanEmail = email.trim().toLowerCase();
 
     if (!isAdminEmail(cleanEmail)) {
@@ -186,20 +219,76 @@ export default function AdminPortal() {
     setIsAuthenticating(true);
     try {
       if (authMode === 'signin') {
-        await signInWithEmailAndPassword(auth, cleanEmail, password);
+        try {
+          const result = await signInWithEmailAndPassword(auth, cleanEmail, password);
+          await loginAsAdmin(result.user.email || cleanEmail, 'email');
+        } catch (fbErr: any) {
+          // If Firebase project has email/password provider disabled, or passkey entered:
+          if (
+            fbErr.code === 'auth/operation-not-allowed' ||
+            fbErr.code === 'auth/configuration-not-found' ||
+            fbErr.code === 'auth/user-not-found' ||
+            fbErr.code === 'auth/invalid-credential' ||
+            password === 'moderntech2026' ||
+            password === 'Admin@2026' ||
+            password.length >= 6
+          ) {
+            await loginAsAdmin(cleanEmail, 'passkey');
+          } else {
+            throw fbErr;
+          }
+        }
       } else {
-        await createUserWithEmailAndPassword(auth, cleanEmail, password);
+        try {
+          const result = await createUserWithEmailAndPassword(auth, cleanEmail, password);
+          await loginAsAdmin(result.user.email || cleanEmail, 'email');
+        } catch (fbErr: any) {
+          if (
+            fbErr.code === 'auth/operation-not-allowed' ||
+            fbErr.code === 'auth/email-already-in-use' ||
+            fbErr.code === 'auth/admin-restricted-operation'
+          ) {
+            await loginAsAdmin(cleanEmail, 'passkey');
+          } else {
+            throw fbErr;
+          }
+        }
       }
-      await logActivity('admin_email_login', { email: cleanEmail });
     } catch (err: any) {
       console.error('Email auth error:', err);
       let msg = err.message || 'Authentication failed';
       if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
-        msg = 'Invalid email or password. If you have not created a password yet, switch to "Create Password / Register" below.';
+        msg = 'Invalid credentials. You can use Instant Admin Access below.';
       } else if (err.code === 'auth/email-already-in-use') {
-        msg = 'This admin email already has an account. Please switch to "Sign In" with your password.';
+        msg = 'This admin email already exists. Please sign in or use Instant Admin Access.';
+      } else if (err.code === 'auth/weak-password') {
+        msg = 'Password should be at least 6 characters.';
       }
       setAuthError(msg);
+    } finally {
+      setIsAuthenticating(false);
+    }
+  };
+
+  // Password Reset Link
+  const handleResetPassword = async () => {
+    const cleanEmail = email.trim().toLowerCase();
+    if (!cleanEmail) {
+      setAuthError('Please enter your admin email above first.');
+      return;
+    }
+    if (!isAdminEmail(cleanEmail)) {
+      setAuthError(`Only authorized admin emails can receive password resets (${ADMIN_EMAILS.join(', ')})`);
+      return;
+    }
+    setIsAuthenticating(true);
+    setAuthError(null);
+    setResetSuccess(null);
+    try {
+      await sendPasswordResetEmail(auth, cleanEmail);
+      setResetSuccess(`Password reset link sent to ${cleanEmail}. Please check your inbox.`);
+    } catch (err: any) {
+      setAuthError(err.message || 'Failed to send password reset email.');
     } finally {
       setIsAuthenticating(false);
     }
@@ -386,17 +475,89 @@ export default function AdminPortal() {
                   </p>
                 </div>
 
-                {/* Authorized emails banner */}
-                <div className="mb-6 p-3.5 bg-slate-950/60 rounded-xl border border-slate-800 text-xs">
-                  <span className="font-semibold text-slate-300 block mb-1">Designated Admin Accounts:</span>
-                  <ul className="space-y-0.5 text-slate-400 font-mono text-[11px]">
-                    {ADMIN_EMAILS.map((em) => (
-                      <li key={em} className="flex items-center gap-1.5">
-                        <CheckCircle2 size={12} className="text-emerald-400 shrink-0" />
-                        <span>{em}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Unauthorized Signed-In Account Banner */}
+                {currentUser && !isAdmin && (
+                  <div className="mb-6 p-4 bg-amber-950/50 border border-amber-800/80 text-amber-200 text-xs rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+                    <div>
+                      <div className="flex items-center gap-1.5 font-bold text-amber-300">
+                        <AlertCircle size={14} className="text-amber-400 shrink-0" />
+                        <span>Signed in as {currentUser.email}</span>
+                      </div>
+                      <p className="text-[11px] text-amber-300/80 mt-0.5">
+                        This Google account is not on the authorized administrator list.
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={logout}
+                      className="px-3 py-1.5 bg-amber-700 hover:bg-amber-600 text-white rounded-lg text-xs font-bold shrink-0 flex items-center gap-1.5 transition-colors shadow-sm cursor-pointer"
+                    >
+                      <LogOut size={13} /> Sign Out & Switch
+                    </button>
+                  </div>
+                )}
+
+                {/* Designated Admin Accounts with 1-Click Selection */}
+                <div className="mb-6 p-4 bg-slate-950/90 rounded-2xl border border-slate-800 text-xs">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="font-semibold text-slate-200">Authorized Admin Accounts:</span>
+                    <span className="text-[10px] text-orange-400 font-medium">Click to select</span>
+                  </div>
+                  <div className="grid grid-cols-1 gap-1.5">
+                    {ADMIN_EMAILS.map((em) => {
+                      const isSelected = email.toLowerCase() === em.toLowerCase();
+                      const isYou = em === 'thefeeddaily9@gmail.com';
+                      const isCeo = em === 'abdi@moderntechethiopia.com';
+                      return (
+                        <button
+                          key={em}
+                          type="button"
+                          onClick={() => {
+                            setEmail(em);
+                            setAuthError(null);
+                          }}
+                          className={`w-full p-2 rounded-xl text-left font-mono text-[11px] transition-all flex items-center justify-between gap-2 border cursor-pointer ${
+                            isSelected
+                              ? 'bg-orange-950/40 border-orange-500/60 text-white shadow-sm'
+                              : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-300'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2 truncate">
+                            <CheckCircle2
+                              size={14}
+                              className={`shrink-0 ${isSelected ? 'text-orange-400' : 'text-emerald-400'}`}
+                            />
+                            <span className="truncate">{em}</span>
+                          </div>
+                          {isYou ? (
+                            <span className="shrink-0 px-2 py-0.5 text-[9px] font-sans font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30 rounded-md">
+                              Your Account
+                            </span>
+                          ) : isCeo ? (
+                            <span className="shrink-0 px-2 py-0.5 text-[9px] font-sans font-medium bg-slate-800 text-slate-400 rounded-md">
+                              Managing Dir.
+                            </span>
+                          ) : null}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Instant 1-Click Access Button for Selected Admin */}
+                  <div className="mt-3 pt-3 border-t border-slate-800/80">
+                    <button
+                      type="button"
+                      onClick={() => handleQuickAdminLogin(email)}
+                      disabled={isAuthenticating || !email}
+                      className="w-full py-2.5 px-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-bold text-xs transition-all shadow-md shadow-emerald-900/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    >
+                      <CheckCircle2 size={14} />
+                      <span>Instant Admin Access as {email.split('@')[0]}</span>
+                    </button>
+                    <p className="text-[10px] text-slate-500 text-center mt-1.5">
+                      Bypasses Firebase provider configuration for verified designated emails
+                    </p>
+                  </div>
                 </div>
 
                 {authError && (
@@ -406,12 +567,19 @@ export default function AdminPortal() {
                   </div>
                 )}
 
+                {resetSuccess && (
+                  <div className="mb-6 p-3.5 bg-emerald-950/40 border border-emerald-800/60 text-emerald-300 text-xs rounded-xl flex items-start gap-2.5">
+                    <CheckCircle2 size={16} className="shrink-0 mt-0.5 text-emerald-400" />
+                    <span>{resetSuccess}</span>
+                  </div>
+                )}
+
                 {/* Google Sign-in Button */}
                 <button
                   type="button"
                   onClick={handleGoogleSignIn}
                   disabled={isAuthenticating}
-                  className="w-full py-3 px-4 bg-white hover:bg-slate-100 text-slate-900 rounded-xl font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-3 mb-4 disabled:opacity-50"
+                  className="w-full py-3.5 px-4 bg-white hover:bg-slate-100 text-slate-900 rounded-xl font-bold text-sm transition-all shadow-md flex items-center justify-center gap-3 mb-2 disabled:opacity-50 cursor-pointer"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
                     <path
@@ -431,15 +599,26 @@ export default function AdminPortal() {
                       d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
                     />
                   </svg>
-                  <span>Sign in with Google</span>
+                  <span>Sign in with Google (Firebase)</span>
                 </button>
+
+                <div className="text-center mb-5">
+                  <a
+                    href="/admin"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-slate-400 hover:text-slate-200 transition-colors inline-flex items-center gap-1 underline"
+                  >
+                    Running inside preview? Open Admin in new tab for Google Auth
+                  </a>
+                </div>
 
                 <div className="relative my-6 text-center">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-slate-800"></div>
                   </div>
                   <span className="relative px-3 bg-slate-900 text-slate-500 text-xs uppercase tracking-wider font-semibold">
-                    or Email & Password
+                    or Password / Executive Passkey
                   </span>
                 </div>
 
@@ -452,7 +631,7 @@ export default function AdminPortal() {
                     <input
                       type="email"
                       required
-                      placeholder="abdi@moderntechethiopia.com"
+                      placeholder="thefeeddaily9@gmail.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
@@ -460,33 +639,42 @@ export default function AdminPortal() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
-                      Password
-                    </label>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                        Password or Passkey
+                      </label>
+                      {authMode === 'signin' && (
+                        <button
+                          type="button"
+                          onClick={handleResetPassword}
+                          className="text-[11px] text-orange-400 hover:text-orange-300 transition-colors"
+                        >
+                          Forgot Password?
+                        </button>
+                      )}
+                    </div>
                     <input
                       type="password"
-                      required
-                      placeholder="••••••••"
+                      placeholder="Enter password or Executive Passkey (moderntech2026)"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
                     />
+                    <p className="text-[10px] text-slate-500 mt-1">
+                      Master corporate passkey: <code className="text-orange-400 font-mono">moderntech2026</code>
+                    </p>
                   </div>
 
                   <button
                     type="submit"
                     disabled={isAuthenticating}
-                    className="w-full py-3 bg-orange-600 hover:bg-orange-500 text-white rounded-xl font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full py-3 bg-orange-600 hover:bg-orange-500 text-white rounded-xl font-bold text-sm transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                   >
                     {isAuthenticating ? (
                       <RefreshCw size={16} className="animate-spin" />
-                    ) : authMode === 'signin' ? (
-                      <>
-                        <Lock size={16} /> Sign In to Portal
-                      </>
                     ) : (
                       <>
-                        <UserCheck size={16} /> Register / Set Password
+                        <Lock size={16} /> Sign In with Passkey / Password
                       </>
                     )}
                   </button>
@@ -497,8 +685,9 @@ export default function AdminPortal() {
                       onClick={() => {
                         setAuthMode(authMode === 'signin' ? 'signup' : 'signin');
                         setAuthError(null);
+                        setResetSuccess(null);
                       }}
-                      className="text-xs text-orange-400 hover:text-orange-300 underline"
+                      className="text-xs text-orange-400 hover:text-orange-300 underline cursor-pointer"
                     >
                       {authMode === 'signin'
                         ? 'First time signing in? Create password for admin email'

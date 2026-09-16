@@ -13,7 +13,11 @@ import type { Inquiry } from '../types';
 export const ADMIN_EMAILS = [
   'abdi@moderntechethiopia.com',
   'thefeeddaily9@gmail.com',
-  'brakilu7@gmail.com'
+  'brakilu7@gmail.com',
+  'info@moderntechethiopia.com',
+  'moderntechplc@gmail.com',
+  'abdi.edao@gmail.com',
+  'abdi@moderntechplc.com'
 ].map(e => e.toLowerCase().trim());
 
 export function isAdminEmail(email: string | null | undefined): boolean {

@@ -230,7 +230,7 @@ const translations: Translation = {
   'about.advantage.3.desc': { en: "Smooth multimodal container transport via Addis Ababa / Modjo to Port of Djibouti.", zh: "从亚的斯亚贝巴/莫乔干港直通吉布提港的高效多式联运集装箱物流。", de: "Zuverlässiger Containertransport von Addis Abeba über Modjo zum Hafen von Dschibuti.", ar: "نقل حاويات سلس متعدد الوسائط عبر أديس أبابا / موجو إلى ميناء جيبوتي." },
   'about.vision.title': { en: 'Building dependable trade bridges for Ethiopia.', zh: '为埃塞俄比亚打造可靠的国际贸易桥梁。', de: 'Verlässliche Handelsbrücken für Äthiopien bauen.', ar: 'بناء جسور تجارية موثوقة لإثيوبيا.' },
   'about.vision.content': { en: 'Our focus is straightforward: delivering genuine Ethiopian quality to global markets on time, with full commercial integrity.', zh: '我们的理念清晰明确：以完全的商业诚信，按时将正宗的埃塞俄比亚优质商品送达全球买家。', de: 'Unser Fokus ist klar: Echte äthiopische Qualität pünktlich und mit voller Integrität auf die Weltmärkte zu bringen.', ar: 'تركيزنا واضح: تقديم الجودة الإثيوبية الأصيلة للأسواق العالمية في الوقت المحدد وبنزاهة تجارية تامة.' },
-  'about.ceo.name': { en: 'Mr. Adnew Siyum (Eng.)', zh: 'Adnew Siyum 先生 (工程师)', de: 'Mr. Adnew Siyum (Ing.)', ar: 'السيد آدنيو سيوم (مهندس)' },
+  'about.ceo.name': { en: 'Abdi Edao', zh: 'Abdi Edao 先生', de: 'Abdi Edao', ar: 'عبدي إداو' },
   'about.ceo.role': { en: 'Managing Director & Founder', zh: '总经理兼创始人', de: 'Geschäftsführer & Gründer', ar: 'المدير العام والمؤسس' },
 
   // Testimonials

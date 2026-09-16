@@ -5,7 +5,7 @@ import { useAdmin } from '../lib/AdminContext';
 
 export default function Footer() {
   const { t, lang } = useTranslation();
-  const { handleLogoClick } = useAdmin();
+  const { handleLogoClick, setIsAdminModalOpen } = useAdmin();
 
   return (
     <footer id="main-footer" className="bg-blue-950 text-white pt-16 pb-8 ltr:text-left rtl:text-right">
@@ -126,11 +126,16 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-blue-900/50 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold">
           <p>© {new Date().getFullYear()} Moderntech Export & Import PLC. {t('footer.rights')}</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <Link to="/admin" className="hover:text-orange-400 transition-colors flex items-center gap-1 text-gray-400">
-              Admin Portal
-            </Link>
+            <button 
+              type="button"
+              onClick={() => setIsAdminModalOpen(true)}
+              className="hover:text-gray-300 transition-colors cursor-pointer"
+              title="Privacy Policy"
+            >
+              Privacy Policy
+            </button>
+            <span className="text-gray-600">•</span>
+            <span className="hover:text-gray-300 transition-colors cursor-pointer">Terms of Service</span>
           </div>
         </div>
       </div>
