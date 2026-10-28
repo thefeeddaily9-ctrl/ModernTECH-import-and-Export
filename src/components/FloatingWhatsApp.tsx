@@ -8,7 +8,7 @@ export default function FloatingWhatsApp() {
     const text = encodeURIComponent(
       "Hello Moderntech Export Desk, I am interested in inquiring about Ethiopian Green Coffee & export commodities."
     );
-    window.open(`https://wa.me/251931573392?text=${text}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/251911256838?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
   return (

@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <div id="home-page" className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-white overflow-hidden">
+      <section className="relative min-h-[100svh] h-auto lg:h-screen lg:min-h-[640px] flex items-center justify-center text-white overflow-hidden py-20 sm:py-24 lg:py-0">
         <div className="absolute inset-0 z-0 flex">
           <div className="w-1/2 h-full relative overflow-hidden">
             <CMSImage 
@@ -92,32 +92,30 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-blue-950/60 via-transparent to-white/10"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center"
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-[0.3em] uppercase bg-blue-600 text-white rounded-full">
-              {t('hero.tagline')}
-            </span>
-            <h1 className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-[0.9]">
-              {t('hero.title')} <span className="text-orange-400">{t('hero.title.span')}</span> <br />
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 sm:mb-6 leading-[1.08] sm:leading-[0.95] max-w-5xl">
+              {t('hero.title')} <span className="text-orange-400">{t('hero.title.span')}</span> <br className="hidden sm:inline" />
               {t('hero.title.growth')}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-4xl mx-auto font-light leading-relaxed">
+            <p className="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 sm:mb-8 md:mb-10 max-w-3xl mx-auto font-light leading-relaxed px-1 sm:px-0">
               {t('hero.description')}
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="w-full max-w-sm sm:max-w-none flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
               <Link 
                 to="/exports/coffee" 
-                className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-md font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-orange-500/20 flex items-center gap-2"
+                className="w-full sm:w-auto justify-center px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl sm:rounded-md font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-orange-500/20 flex items-center gap-2 text-sm sm:text-base text-center"
               >
                 {t('hero.cta.coffee')} <ArrowRight size={18} />
               </Link>
               <Link 
                 to="/exports/minerals" 
-                className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 rounded-md font-bold transition-all flex items-center gap-2"
+                className="w-full sm:w-auto justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 rounded-xl sm:rounded-md font-bold transition-all flex items-center gap-2 text-sm sm:text-base text-center"
               >
                 {t('hero.cta.minerals')} <Pickaxe size={18} />
               </Link>
@@ -125,8 +123,8 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
-          <div className="w-1 h-16 rounded-full bg-gradient-to-b from-white to-transparent"></div>
+        <div className="hidden md:block absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 pointer-events-none">
+          <div className="w-1 h-12 lg:h-16 rounded-full bg-gradient-to-b from-white to-transparent"></div>
         </div>
       </section>
 

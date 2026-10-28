@@ -214,7 +214,7 @@ export default function Coffee() {
 
   const handleWhatsAppQuote = () => {
     const message = `Hello Moderntech Export Desk,%0A%0AI would like to request an export quotation for:%0A- Product: ${encodeURIComponent(selectedCoffeeForQuote)}%0A- Volume: ${encodeURIComponent(quoteForm.quantity)}%0A- Packaging: ${encodeURIComponent(quoteForm.packaging)}%0A- Destination Port: ${encodeURIComponent(quoteForm.destinationPort || 'Not specified')}%0A- Buyer: ${encodeURIComponent(quoteForm.name || 'Importer')} (${encodeURIComponent(quoteForm.company || 'Company')})%0A- Email: ${encodeURIComponent(quoteForm.email || 'N/A')}%0A- Notes: ${encodeURIComponent(quoteForm.notes || 'Please provide current FOB Djibouti pricing and sample availability.')}`;
-    window.open(`https://wa.me/251931573392?text=${message}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/251911256838?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 
   return (

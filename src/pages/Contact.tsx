@@ -57,7 +57,7 @@ export default function Contact() {
     const text = encodeURIComponent(
       `Hello Moderntech Export Desk,%0A%0A*Name / Company:* ${formData.name || 'Importer'}%0A*Email:* ${formData.email || 'N/A'}%0A*Product:* ${formData.subject}%0A*Volume:* ${formData.volume}%0A*Message:* ${formData.message || 'I would like to request an export quote and current FOB price list.'}`
     );
-    window.open(`https://wa.me/251931573392?text=${text}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/251911256838?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
